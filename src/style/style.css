@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(18, 18, 18);
+}
+
+.container {
+    width: 100%;
+    height: max-content;
+}
+
+.container-modal-box-aktif{
+    opacity: .5;
+    filter: blur(1px);
+}
+
+/* Header */
+
+.header{
+    width: 90%;
+    margin: 0px auto;
+    padding-top: 110px;
+    display: flex;
+    gap: 5px;
+}
+
+.box-satu{
+    width: 50%;
+}
+
+.box-satu img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.box-dua{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.box-dua img {
+    width: 48%;
+    border-radius: 5px;
+}
+
+.box-tiga-mobile{
+    width: 100%;
+    height: 80%;
+    display: none;
+}
+
+.box-tiga-mobile img{
+    width: 100%;
+}
+
+.search-mobile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.search-mobile input {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    font-size: large;
+    padding: 5px;
+    border: none;
+    transition: all ease-in-out .25s;
+}
+
+.search-mobile input:focus{
+    outline: 2px solid gold;
+    box-shadow: 2px 2px 2px gold;
+}
+
+.search-mobile button {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: gold;
+    cursor: pointer;
+    border: none;
+}
+
+.search-mobile button h3 {
+    margin: 0;
+}
+
+@media screen and (max-width: 700px){
+    .header {
+        padding-top: 30px;
+    }
+    .box-satu, .box-dua {
+        display: none;
+    }
+    .box-tiga-mobile{
+        display: block;
+    }
+}
+
+
+
+/* Content */
+
+.content {
+    width: 90%;
+    margin: 20px auto;
+    padding-bottom: 30px;
+}
+
+.list-genre {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.genre{
+    padding: 8px;
+    width: 120px;
+    text-align: center;
+    font-weight: 600;
+    background-color: gold;
+    border: 1px solid gold;
+    cursor: pointer;
+    transition: all ease-in-out .25s;
+    border-radius: 5px;
+}
+
+.genre:hover {
+    background-color:goldenrod;
+}
+
+.box-list-movie {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.box-movie {
+    box-shadow: 0px 0px 20px black;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.box-movie img {
+    border-radius: 3px;
+    width: 100%;
+}
+
+.box-movie .information {
+    width: 90%;
+    margin: 0 auto;
+    color: gold;
+    display: flex;
+    flex-wrap: wrap;
+    font-size:smaller;
+    flex-direction: column;
+}
+
+.information h3, h6 {
+    margin: 5px 0;
+    font-size: 15px;
+}
+.information h3:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.information h3::selection{
+    background-color: transparent;
+}
+
+.information h6{
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1300px){
+    .list-genre {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    .genre{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .list-genre {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 755px){
+    .box-list-movie {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .list-genre {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+@media screen and (max-width: 588px){
+    .box-list-movie {
+        grid-template-columns: 1fr 1fr;
+    }
+    .list-genre {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media screen and (max-width: 400px){
+    .box-list-movie {
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 423px){
+    .list-genre {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* Modal Box */
+.modal-box{
+    box-shadow: 0px 0px 20px black;
+    background-color: black;
+    background-color: rgb(18, 18, 18);
+    transform: scale(0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.modal-box-aktif{
+    width: 80%;
+    height: max-content;
+    padding: 10px;
+    transform: scaleY(1);
+    transition: all ease-in-out .25s;
+}
+
+
+.modal-box-content{
+    display: flex;
+    color: gold;
+}
+
+.image-modal-box {
+    width: 30%;
+}
+
+.image-modal-box img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container-title-box-modal{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-left: 5px;
+    font-size: small;
+}
+
+.gap {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+    box-shadow: 0px 0px 5px black;
+    text-align: left;
+    border-radius: 5px;
+}
+.container-title-box-modal h6{
+    font-size: small;
+    margin: 0;
+}
+
+h6.judul-film {
+    font-size: medium;
+    margin-top: 5px;
+}
+
+.gap p {
+    color: rgba(255, 217, 0, 0.7);
+}
+.container-title-box-modal h3{
+    width: 50px;
+    font-size: medium;
+}
+
+button.btn-close-box-modal {
+    float: right;
+    margin-top: 10px;
+    width: max-content;
+    padding: 7px 25px;
+    background-color: gold;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all ease-in-out .25s;
+    cursor: pointer;
+}
+
+button.btn-close-box-modal:hover {
+    background-color: goldenrod;
+}
+
+@media screen and (max-width: 1000px){
+    .image-modal-box {
+        width: 100%;
+    }
+    .modal-box-aktif{
+        width: 50%;
+    }
+    .modal-box-content{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 800px){
+    .modal-box-aktif{
+        overflow-x: scroll;
+        max-height: 90vh;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .modal-box-aktif{
+        width: 70%;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .modal-box-aktif{
+        width: 90%;
+    }
+}
